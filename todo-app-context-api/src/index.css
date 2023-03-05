@@ -1,0 +1,32 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+      body {
+        background-image: linear-gradient(to right, #89349b, #892aad, #8420c0, #7a17d5, #6712eb);     
+      }
+
+      li {
+        background-color: #fff;
+        color: rgb(28, 27, 27);
+        width: 26.9rem;
+        height: 3rem;
+        margin: 0.5rem auto;
+        padding: 0.7rem;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+        transition: 0.2s;
+        display: flex;
+      }
+
+    .done {
+        text-decoration: line-through;
+        background-color: #1eb337;
+        color: #fff; 
+    }
+}
