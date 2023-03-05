@@ -5,8 +5,9 @@
 ## 🧰 Technologies Used
 
 - React JS
-- Redux
+- Redux Toolkit
 - TailwindCSS for styles
+- Icons for React Icons
 
 ## Quick Start
 
