@@ -1,17 +1,23 @@
 <h1>About</h1>
-<p>This repository is my React Todo App project.<p>
+<p>This repository is Todo App project.</p>
 
-<h2>Technologies</h2>
- 
-<li>React</li>
-<li>Tailwind</li>
+## 🧰 Technologies Used
 
-<h3>Installation</h3>
+- React JS
+- Context API
+- TailwindCSS for styles
+- Icons for React Icons
 
-`$ git clone https://github.com/nesathanozturk/todoapp.git`
+## Quick Start
 
-`$ cd todoapp`
+```bash
+# Install dependencies
+npm install
 
-`$ npm install `
+# Serve on localhost:3000
+npm start
 
-`$ npm start`
+# Build for production
+npm run build
+```
+
