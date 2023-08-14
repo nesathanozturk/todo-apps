@@ -5,22 +5,20 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  body {
-    background-image: linear-gradient(
-      to right,
-      #89349b,
-      #892aad,
-      #8420c0,
-      #7a17d5,
-      #6712eb
-    );
-  }
-  li {
-    @apply flex bg-white w-[24rem] h-12 mt-3 mb-2 mx-auto p-[0.7rem] text-base rounded-md cursor-pointer border-none outline-none transition-colors max-mobile:w-[20rem];
-  }
+body {
+  background-image: linear-gradient(
+    to right,
+    #89349b,
+    #892aad,
+    #8420c0,
+    #7a17d5,
+    #6712eb
+  );
+}
+li {
+  @apply flex bg-white w-[24rem] h-12 mt-3 mb-2 mx-auto p-[0.7rem] text-base rounded-md cursor-pointer border-none outline-none transition-colors max-mobile:w-[20rem];
+}
 
-  .done {
-    @apply line-through bg-[#1eb337] text-white;
-  }
+.done {
+  @apply line-through bg-[#1eb337] text-white;
 }

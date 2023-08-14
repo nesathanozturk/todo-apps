@@ -20,28 +20,25 @@ export const todoSlice = createSlice({
     },
   ],
   reducers: {
-    addTodo: {
-      reducer: (state, action) => {
-        state.push(action.payload);
-      },
-      prepare: ({ title }) => {
-        return {
-          payload: {
-            id: Math.floor(Math.random() * 100),
-            title,
-            completed: false,
-          },
-        };
-      },
+    addTodo: (state, action) => {
+      const newTodo = {
+        id: Math.floor(Math.random() * 100),
+        title,
+        completed: false,
+      };
+
+      state.push(newTodo);
     },
     isCompleted: (state, action) => {
-      const i = state.findIndex(
-        (todoItem) => todoItem.id === action.payload.id
-      );
+      const id = action.payload.id;
+
+      const i = state.findIndex((todoItem) => todoItem.id === id);
       state[i].completed = action.payload.completed;
     },
     removeTodo: (state, action) => {
-      return state.filter((todoItem) => todoItem.id !== action.payload.id);
+      const id = action.payload.id;
+
+      return state.filter((todoItem) => todoItem.id !== id);
     },
     clearTodos: (state) => {
       return state.filter(

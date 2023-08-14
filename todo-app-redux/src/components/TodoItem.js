@@ -1,30 +1,41 @@
-import { useDispatch } from "react-redux";
-import { isCompleted, removeTodo } from "../redux/features/todo/todoSlice";
 import { AiFillDelete } from "react-icons/ai";
 import { AiFillCheckCircle } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 
-function TodoItem({ id, title, completed }) {
+import { isCompleted, removeTodo } from "../store/slices/todoSlice";
+
+function TodoItem({ todos }) {
   const dispatch = useDispatch();
 
-  return (
-    <div>
-      <li className={completed ? "done" : ""}>
-        {title}
+  const renderedTodoItem = todos.map((todo) => {
+    const handleCompleted = () => {
+      dispatch(isCompleted({ id: todo.id, completed: !todo.completed }));
+    };
+
+    const handleRemoveTodo = () => {
+      dispatch(removeTodo(todo.id));
+    };
+
+    return (
+      <li key={todo.id} className={todo.completed && "done"}>
+        {todo.title}
         <button
           className="ml-auto text-purple-600 mr-1 text-xl"
-          onClick={() => dispatch(isCompleted({ id, completed: !completed }))}
+          onClick={() => dispatch(isCompleted(handleCompleted))}
         >
           <AiFillCheckCircle />
         </button>
         <button
           className="mr-1 text-red-600 text-xl"
-          onClick={() => dispatch(removeTodo({ id }))}
+          onClick={handleRemoveTodo}
         >
           <AiFillDelete />
         </button>
       </li>
-    </div>
-  );
+    );
+  });
+
+  return renderedTodoItem;
 }
 
 export default TodoItem;
