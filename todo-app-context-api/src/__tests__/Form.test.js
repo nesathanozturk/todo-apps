@@ -140,4 +140,29 @@ describe("Form component", () => {
 
     expect(todoItem).toHaveClass("done");
   });
+
+  it("should not complete todo item when click again complete icon", async () => {
+    const user = userEvent.setup();
+
+    const addButton = screen.getByRole("button", {
+      name: "Add",
+    });
+    const inputEl = screen.getByPlaceholderText(/add something to do/i);
+
+    const todoItemTitle = "Learn React";
+    await user.type(inputEl, todoItemTitle);
+
+    await user.click(addButton);
+
+    const todoItem = screen.getByText("Learn React");
+
+    const completedButton = screen.getByTestId("completed-button");
+    await user.click(completedButton);
+
+    expect(todoItem).toHaveClass("done");
+
+    await user.click(completedButton);
+
+    expect(todoItem).not.toHaveClass("done");
+  });
 });
