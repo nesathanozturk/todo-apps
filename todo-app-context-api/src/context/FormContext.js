@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 const FormContext = createContext();
 
-function Provider({ children }) {
+function FormProvider({ children }) {
   const [newItem, setNewItem] = useState("");
   const [list, setList] = useState([]);
 
@@ -10,8 +10,8 @@ function Provider({ children }) {
     if (!newItem) {
       alert("Add something to do!");
     }
-    setList([
-      ...list,
+    setList((prevList) => [
+      ...prevList,
       {
         id: Math.floor(Math.random() * 1000),
         name: newItem,
@@ -53,5 +53,5 @@ function Provider({ children }) {
   );
 }
 
-export { Provider };
+export { FormProvider };
 export default FormContext;

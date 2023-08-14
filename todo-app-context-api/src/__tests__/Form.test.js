@@ -4,14 +4,15 @@ import "@testing-library/jest-dom/extend-expect";
 import userEvent from "@testing-library/user-event";
 
 import Form from "../components/Form";
-import { Provider } from "../context/form";
+
+import { FormProvider } from "../context/FormContext";
 
 describe("Form component", () => {
   beforeEach(() => {
     render(
-      <Provider>
+      <FormProvider>
         <Form />
-      </Provider>
+      </FormProvider>
     );
   });
 
