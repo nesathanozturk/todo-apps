@@ -21,7 +21,7 @@ function TodoItem({ todos }) {
         {todo.title}
         <button
           className="ml-auto text-purple-600 mr-1 text-xl"
-          onClick={() => dispatch(isCompleted(handleCompleted))}
+          onClick={handleCompleted}
         >
           <AiFillCheckCircle />
         </button>

@@ -23,27 +23,30 @@ export const todoSlice = createSlice({
     addTodo: (state, action) => {
       const newTodo = {
         id: Math.floor(Math.random() * 100),
-        title,
+        title: action.payload.title,
         completed: false,
       };
 
       state.push(newTodo);
     },
     isCompleted: (state, action) => {
-      const id = action.payload.id;
+      const { id, completed } = action.payload;
 
-      const i = state.findIndex((todoItem) => todoItem.id === id);
-      state[i].completed = action.payload.completed;
+      const todoItem = state.find((todoItem) => todoItem.id === id);
+
+      if (todoItem) {
+        todoItem.completed = completed;
+      }
     },
     removeTodo: (state, action) => {
-      const id = action.payload.id;
+      const id = action.payload;
 
       return state.filter((todoItem) => todoItem.id !== id);
     },
-    clearTodos: (state) => {
-      return state.filter(
-        (todoItem) => todoItem.completed && !todoItem.completed
-      );
+    clearTodos: (state, action) => {
+      const id = action.payload;
+
+      return state.filter((todoItem) => todoItem.id && id);
     },
   },
 });

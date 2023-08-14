@@ -10,6 +10,7 @@ function TodoForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!title) {
       alert("Add something to do!");
     } else {
@@ -18,7 +19,7 @@ function TodoForm() {
     }
   };
 
-  const clearTodos = () => {
+  const handleClearTodos = () => {
     dispatch(clearTodos());
   };
 
@@ -42,7 +43,7 @@ function TodoForm() {
         </form>
         <div className="w-10">
           <button
-            onClick={clearTodos}
+            onClick={handleClearTodos}
             className="w-20 bg-red-600 text-white mt-5 p-[0.6rem] text-sm rounded-md hover:bg-red-800 transition-colors max-sm:w-16 max-mobile:w-14"
           >
             Clear
